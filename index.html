@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+  </head>
+
+  <body>
+    <input id="fileChooser" type="file">
+    <a href="#" id="download">Download</a>
+  </body>
+    <script>
+        var fileChooser = document.getElementById('fileChooser');
+        
+        function parseTextAsXml(text) {
+            var parser = new DOMParser(),
+            xmlDom = parser.parseFromString(text, "text/xml");
+
+            learners = xmlDom.getElementsByTagName("Learner")
+            for (var i = 0; i < learners.length; i++) {
+                learners[i].getElementsByTagName("GivenNames")[0].textContent = 'Anon';
+                learners[i].getElementsByTagName("FamilyName")[0].textContent = 'Anon';
+
+                if( learners[i].getElementsByTagName("AddLine1").length != 0 )
+                {
+                    learners[i].getElementsByTagName("AddLine1")[0].textContent = 'XX';
+                }
+                if( learners[i].getElementsByTagName("AddLine2").length != 0 )
+                {
+                    learners[i].getElementsByTagName("AddLine2")[0].textContent = 'XX';
+                }
+            }
+
+            var serializer = new XMLSerializer();
+            var xmlString = serializer.serializeToString(xmlDom);
+            var fileName = "myfile.xml";
+            var fileContent = xmlString;
+            var myFile = new Blob([fileContent], {type: 'text/plain'});
+
+            window.URL = window.URL || window.webkitURL;
+            var dlBtn = document.getElementById("download");
+
+            dlBtn.setAttribute("href", window.URL.createObjectURL(myFile));
+            dlBtn.setAttribute("download", fileName);
+        }
+
+        function waitForTextReadComplete(reader) {
+            reader.onloadend = function(event) {
+                var text = event.target.result;
+                parseTextAsXml(text);
+            }
+        }
+
+        function handleFileSelection() {
+            var file = fileChooser.files[0],
+            reader = new FileReader();
+            waitForTextReadComplete(reader);
+            reader.readAsText(file);
+        }
+
+        fileChooser.addEventListener('change', handleFileSelection, false);
+
+</script>
+</html>
