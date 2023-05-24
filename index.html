@@ -30,6 +30,10 @@
                 learners[i].getElementsByTagName("GivenNames")[0].textContent = 'Anon';
                 learners[i].getElementsByTagName("FamilyName")[0].textContent = 'Anon';
 
+                if( learners[i].getElementsByTagName("NINumber").length != 0 )
+                {
+                    learners[i].getElementsByTagName("NINumber")[0].textContent = 'XX';
+                }
                 if( learners[i].getElementsByTagName("AddLine1").length != 0 )
                 {
                     learners[i].getElementsByTagName("AddLine1")[0].textContent = 'XX';
@@ -37,6 +41,22 @@
                 if( learners[i].getElementsByTagName("AddLine2").length != 0 )
                 {
                     learners[i].getElementsByTagName("AddLine2")[0].textContent = 'XX';
+                }
+                if( learners[i].getElementsByTagName("AddLine3").length != 0 )
+                {
+                    learners[i].getElementsByTagName("AddLine3")[0].textContent = 'XX';
+                }
+                if( learners[i].getElementsByTagName("AddLine4").length != 0 )
+                {
+                    learners[i].getElementsByTagName("AddLine4")[0].textContent = 'XX';
+                }
+                if( learners[i].getElementsByTagName("TelNo").length != 0 )
+                {
+                    learners[i].getElementsByTagName("TelNo")[0].textContent = 'XX';
+                }
+                if( learners[i].getElementsByTagName("Email").length != 0 )
+                {
+                    learners[i].getElementsByTagName("Email")[0].textContent = 'XX';
                 }
             }
 
