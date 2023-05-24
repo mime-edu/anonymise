@@ -6,8 +6,17 @@
   </head>
 
   <body>
+    <h1>Mime Anonymiser</h1>
+    <div>This website has been specifically developed to anonymise ILR data. Please use this website to anonymise your ILR return(s) for the years requested (usually the latest R14 return available), by following the instructions below:
+    <ul>
+        <li>Click the “Browse” button, then select your ILR XML file from the pop-up window, and click “Open”</li>
+        <li>A download link should then appear – please click on this link, then save the XML file that downloads</li>
+        <li>Securely send the file to Mime – we normally recommend using Egress (and emailing to egress@mimeconsulting.co.uk), but you may choose to use your own secure email system.</li>
+    </ul>
+    </div>
+    </br>
     <input id="fileChooser" type="file">
-    <a href="#" id="download">Download</a>
+    <a href="#" id="download">Download anonymised file</a>
   </body>
     <script>
         var fileChooser = document.getElementById('fileChooser');
@@ -33,7 +42,7 @@
 
             var serializer = new XMLSerializer();
             var xmlString = serializer.serializeToString(xmlDom);
-            var fileName = "myfile.xml";
+            var fileName = "anonymised_ilr.xml";
             var fileContent = xmlString;
             var myFile = new Blob([fileContent], {type: 'text/plain'});
 
