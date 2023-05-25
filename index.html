@@ -16,8 +16,8 @@
     </div>
     <div>
     <button style="width:200px" onclick="document.getElementById('fileChooser').click()">Select ILR file</button>
-    <input type='file' id="fileChooser" style="display:none">
-    <a class="button" style="width:250px" href="#" id="download">Download anonymised ILR file</a>
+    <input type='file' id="fileChooser" accept=".xml" style="display:none">
+    <a class="button" style="width:250px; display:none;" href="#" id="download">Download anonymised ILR file</a>
     </div>
     <div>
       </br>
@@ -76,6 +76,7 @@
             var dlBtn = document.getElementById("download");
 
             dlBtn.setAttribute("href", window.URL.createObjectURL(myFile));
+            dlBtn.setAttribute("style", "display: initial;");
             dlBtn.setAttribute("download", fileName);
         }
 
