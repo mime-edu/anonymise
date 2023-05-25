@@ -1,26 +1,28 @@
 <!doctype html>
-
 <html>
   <head>
-    <link rel="stylesheet" href="lib/style.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
   </head>
-
   <body>
-    <h1>Mime Anonymiser</h1>
+    <h1>Mime Data Anonymiser</h1>
     <div>This website has been specifically developed to anonymise ILR data. Please use this website to anonymise your ILR return(s) for the years requested (usually the latest R14 return available), by following the instructions below:
-    <ul>
-        <li>Click the "Browse" button, then select your ILR XML file from the pop-up window, and click "Open"</li>
-        <li>A download link should then appear - please click on this link, then save the XML file that downloads</li>
-        <li>Securely send the file to Mime - we normally recommend using Egress (and emailing to <a href="mailto:egress@mimeconsulting.co.uk">egress@mimeconsulting.co.uk</a>), but you may choose to use your own secure email system.</li>
-    </ul>
+        <ul>
+            <li><strong>Important: Note that the data is not uploaded anywhere - all anonymisation happens locally in your web browser</strong></li>
+            <li>Click the "Select ILR file" button below, then select your ILR XML file from the pop-up window, and click "Open"</li>
+            <li>Then click the "Download anonymised ILR file" button and save the XML file which downloads</li>
+            <li>Securely send the file to Mime - we normally recommend using Egress (and emailing to <a href="mailto:egress@mimeconsulting.co.uk">egress@mimeconsulting.co.uk</a>), but you may choose to use your own secure email system.</li>
+        </ul>
     Please note that you should have already returned your data sharing agreement to Mime before sending the anonymised data.
     </div>
-    </br>
-    <input id="fileChooser" type="file">
-    <a href="#" id="download">Download anonymised file</a>
-    </br>
-    </br>
-    <img src="mime.png" width="100px">
+    <div>
+    <button style="width:200px" onclick="document.getElementById('fileChooser').click()">Select ILR file</button>
+    <input type='file' id="fileChooser" style="display:none">
+    <a class="button" style="width:250px" href="#" id="download">Download anonymised ILR file</a>
+    </div>
+    <div>
+      </br>
+      <img src="mime.png" width="150px">
+    </div>
   </body>
     <script>
         var fileChooser = document.getElementById('fileChooser');
@@ -92,6 +94,5 @@
         }
 
         fileChooser.addEventListener('change', handleFileSelection, false);
-
 </script>
 </html>
