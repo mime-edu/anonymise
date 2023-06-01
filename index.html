@@ -33,9 +33,15 @@
 
             learners = xmlDom.getElementsByTagName("Learner")
             for (var i = 0; i < learners.length; i++) {
-                learners[i].getElementsByTagName("GivenNames")[0].textContent = 'Anon';
-                learners[i].getElementsByTagName("FamilyName")[0].textContent = 'Anon';
-
+            
+                if( learners[i].getElementsByTagName("GivenNames").length != 0 )
+                {
+                    learners[i].getElementsByTagName("GivenNames")[0].textContent = 'Anon';
+                }
+                if( learners[i].getElementsByTagName("FamilyName").length != 0 )
+                {
+                    learners[i].getElementsByTagName("FamilyName")[0].textContent = 'Anon';
+                }
                 if( learners[i].getElementsByTagName("NINumber").length != 0 )
                 {
                     learners[i].getElementsByTagName("NINumber")[0].textContent = 'XX';
